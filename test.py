@@ -45,10 +45,19 @@
 
 
 #?--나머지 연산자 %
-print(5 % 3)
-print(5 + 5 % 3)
-print((5 + 5) % 3)
+# print(5 % 3)
+# print(5 + 5 % 3)
+# print((5 + 5) % 3)
 
 
+#?--Call by object
+x = 10
+def ref_demo(x):
+    print ("2 x=" ,x," id = ", id(x))
+    x = 42
+    print ("3 x=" ,x," id = ", id(x))
 
-
+x = 10
+print ("1 x=" ,x," id = ", id(x))
+ref_demo(x)
+print ("4 x=" ,x," id = ", id(x))
