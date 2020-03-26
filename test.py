@@ -51,13 +51,21 @@
 
 
 #?--Call by object
-x = 10
-def ref_demo(x):
-    print ("2 x=" ,x," id = ", id(x))
-    x = 42
-    print ("3 x=" ,x," id = ", id(x))
+# x = 10
+# def ref_demo(x):
+#     print ("2 x=" ,x," id = ", id(x))
+#     x = 42
+#     print ("3 x=" ,x," id = ", id(x))
 
-x = 10
-print ("1 x=" ,x," id = ", id(x))
-ref_demo(x)
-print ("4 x=" ,x," id = ", id(x))
+# x = 10
+# print ("1 x=" ,x," id = ", id(x))
+# ref_demo(x)
+# print ("4 x=" ,x," id = ", id(x))
+
+#?--inplace operation
+#! 함수로 전달된 파라미터의 값은 바뀔 수 있는가?
+#! immutable variable vs Mutable variable
+
+# in-place operation은 새로 메모리를 할당하지 않고 기존 데이터를 업데이트함
+    # 원래있던 벡터자리 그대로 숫자를 업데이트 함
+    # find deferent of + vs +=
