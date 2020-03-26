@@ -1,57 +1,52 @@
+# -------------------------------
+# 암호분석 2020.03.26, 20175204김영범
+# -------------------------------
 
-#! check plz
-# def my_func_0(a):
-#     print("2 a = ",a, "id  = ",id(a))
-#     a = a + 1
-#     print("3 a = ",a, "id  = ",id(a))
+#!Casar Cipher
+lower_alphabet = "abcdefghijklmnopqrstuvwxyz"
+upper_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#-- Caesar 암호화
+def caesar_encrypt(key,plain_msg):
+    cipher_msg = ''
+    for symbol in plain_msg:
+        if symbol in upper_alphabet:
+            symbol_idx = upper_alphabet.find(symbol)
+            cipher_msg  = cipher_msg + upper_alphabet[(symbol_idx + key) % len(upper_alphabet)]
+        elif symbol in lower_alphabet:
+            symbol_idx = lower_alphabet.find(symbol)
+            cipher_msg  = cipher_msg + lower_alphabet[(symbol_idx + key) % len(lower_alphabet)]
+        else:
+            cipher_msg = cipher_msg + symbol
+    return cipher_msg
+
+def caesar_decrypt(key,plain_msg):
+    recorvedtxt = ''
+    for symbol in plain_msg:
+        if symbol in upper_alphabet:
+            symbol_idx = upper_alphabet.find(symbol)
+            recorvedtxt  = recorvedtxt + upper_alphabet[(symbol_idx - key) % len(upper_alphabet)]
+        elif symbol in lower_alphabet:
+            symbol_idx = lower_alphabet.find(symbol)
+            recorvedtxt  = recorvedtxt + lower_alphabet[(symbol_idx - key) % len(lower_alphabet)]
+        else:
+            recorvedtxt = recorvedtxt + symbol
+    return recorvedtxt
+
+#!-- 테스트용 main()
+def main():
+    plaintxt = "This is plain txt!!"
+    Ciphertxt = ''
+    recorvedtxt = ''
+    key = 3
+
+    Ciphertxt = caesar_encrypt(key,plaintxt)
+    recorvedtxt = caesar_decrypt(key,Ciphertxt)
+    print("Cipher txt = " , plaintxt)
+    print("plain txt = " ,Ciphertxt)
+    print("recover txt = ", recorvedtxt)
 
 
-
-# a = 10
-# print("1 a = ",a, "id  = ",id(a))
-# my_func_0(a)
-# print("4 a = ",a, "id  = ",id(a))
-
-# '''
-#     1 a =  10 id  =  4404924368
-#     2 a =  10 id  =  4404924368
-#     3 a =  11 id  =  4404924400
-#     4 a =  10 id  =  4404924368
-# '''
-
-# def my_swap(a,b):
-#     print('a = ',a, 'b = ', b)
-#     temp = a
-#     a = b
-#     b = temp
-#     print('a = ',a, 'b = ', b)
-#     return a,b
-
-# x = 10
-# y = 20
-# print('x = ',x, 'y = ', y)
-# # x,y = my_swap(x,y)
-# x,y = y,x
-# print('x = ',x, 'y = ', y)
-
-#??---List
-
-my_list = ['AES' , 'ARIA', 'LEA', 'SEED', 'Misty']
-
-# print(my_list[:-1])
-
-my_list += ['Speck','simon']
-# print(my_list)
-
-my_list.append("RSA")
-my_list.append("DES")
-# print(my_list)
-
-# if 'LEA' in my_list:
-#     print('LEA is iso standard cipher')
-# else:
-#     print("NO!!")
-
-for cipher in my_list:
-    print('%s is a block cipher' %(cipher))
-
+#---- Run main()
+if __name__ == '__main__': # 만약 다른 함수에서 실행하면 실행하지 말라
+    main()
