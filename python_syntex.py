@@ -125,6 +125,9 @@ my_list.append("DES")
 # else:
 #     print("NO!!")
 
-for cipher in my_list:
-    print('%s is a block cipher' %(cipher))
+# for cipher in my_list:
+#     print('%s is a block cipher' %(cipher))
 
+# for i in range(0,6):
+#     print("%s is cipher" %(my_list[i]))
+   
