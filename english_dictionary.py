@@ -4,6 +4,7 @@
 
 #!-- dictionary (key, value) sample
 
+
 myDic1 = {'us' : 'AES','kr' : 'LEA', 'jp' : 'MISTY'}
 print(myDic1['kr'])
 
@@ -13,7 +14,7 @@ myDic2['ru'] = 'GOST'
 print(myDic1)
 print(myDic2)
 
-#--Deep copy
+# #--Deep copy
 import copy
 myDic3 = copy.deepcopy(myDic1)
 myDic3['uk'] = 'IDEA'
@@ -41,4 +42,4 @@ joined_msg2 = ''.join(list_msg)
 print('joined = ',joined_msg2)
 
 
-#!------------sample
+# #!------------sampl
