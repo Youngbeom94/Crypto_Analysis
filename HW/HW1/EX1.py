@@ -52,7 +52,7 @@ def Substitution_De(key,msg):
     return result
 
 
-   #---------------선 언------------------------
+#---------------선 언------------------------
 Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 key = "UVGHQRYIAEBCDSTJKLWOPXFMNZ"
 plaintxt = "hello world!"

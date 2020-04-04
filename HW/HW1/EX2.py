@@ -10,13 +10,13 @@ import random
     암호키를 랜덤하게 생성하는 함수를 작성하고, 이를 이용하여 암호화 복호화하는 예제를 제시해라    
 '''
 
-def Key_generation():
-    temp = list()
-    for i in Alphabet:
+def Key_generation():#알파벳 26개를 이용해서 키를 랜덤으로 만들어주는 함수입니다.
+    temp = list() # random함수는 문자열에서 사용이 불가능 하니까 list를 이용하려고 변수를 넣었습니다.
+    for i in Alphabet:# temp list에 알파벳을 하나씩 추가시킵니다.
         temp.append(i)
-    random.shuffle(temp)
+    random.shuffle(temp) #random.suffle함수를 이용해서 temp list에 있는 26개를 무작위로 섞어줍니다.
     usrkey = ''
-    for j in temp:
+    for j in temp:#usrkey를 선언하고 무작위로 섞인 값들을 대입시켜줍니다.
         usrkey += j
     return usrkey
 
