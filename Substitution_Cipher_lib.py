@@ -14,6 +14,13 @@ def ReadFile(in_file):
     return mytext
 
 
+
+def WriteFile(filename,msg):
+    outfileobj = open(filename,'w')
+    outfileobj.write(msg)
+    outfileobj.close()
+    return
+
 def Substitution_En(key,msg):
     result = ''
     InSet = Alphabet

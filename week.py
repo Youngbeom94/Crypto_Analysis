@@ -47,8 +47,18 @@ def getFreqorder(msg):# 알파벳 빈도순으로 문자열 만들기
 
 #-------------------------------------------------------------------------------------------
 in_file = 'my_text.txt' #입력파일
+cipher_file = 'my_cipher.txt' #출력파일
+
 text = Substitution_Cipher_lib.ReadFile(in_file)
+key = Substitution_Cipher_lib.Key_generation()
+mycipher = Substitution_Cipher_lib.Substitution_En(key,text)
+Substitution_Cipher_lib.WriteFile(cipher_file,mycipher)
+
 # print(getletterCount(text))
-freqletter =  getFreqorder(text)
-print("my txt = " ,freqletter)
-print("ETATIO = ", ETAOIN)
+freqletter_plaintxt =  getFreqorder(text)
+freqletter_ciphertxt =  getFreqorder(mycipher)
+
+
+print("my paintxt = " ,freqletter_plaintxt)
+print("my ciphtxt = " ,freqletter_ciphertxt)
+# print("ETATIO = ", ETAOIN)
