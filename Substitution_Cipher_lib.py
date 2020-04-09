@@ -1,25 +1,8 @@
 # -------------------------------
 # 암호분석 2020.04.04, 20175204김영범
 # -------------------------------
-
 import random
 import os,sys
-
-def ReadFile(in_file):
-    if not os.path.exists(in_file):
-        print('File %s does not exist' %(in_file))
-        sys.exit()
-    Infileobj = open(in_file)
-    mytext = Infileobj.read()
-    return mytext
-
-
-
-def WriteFile(filename,msg):
-    outfileobj = open(filename,'w')
-    outfileobj.write(msg)
-    outfileobj.close()
-    return
 
 def Substitution_En(key,msg):
     result = ''

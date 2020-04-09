@@ -3,9 +3,10 @@
 # -------------------------------
 
 import Substitution_Cipher_lib
+import File_lib
 import os, sys
 
-ETAOIN = 'ETAOINSHRDLCUMWFGYPBVJXQZ' #?영어에서 가장많이 사용하는 알파벳 빈도순서
+ETAOIN =  "ETAOINSHRDLCUMWFGYPBVKJXQZ" #?영어에서 가장많이 사용하는 알파벳 빈도순서
 LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 #-------------------------------------------------------------------------------------------
@@ -43,22 +44,41 @@ def getFreqorder(msg):# 알파벳 빈도순으로 문자열 만들기
 
     return ''.join(freq_order_list)
 
-
-
 #-------------------------------------------------------------------------------------------
+def Freq2Key(freq_order):
+    temp_dict = {}
+    i = 0
+    for char in freq_order:
+        temp_dict[ETAOIN[i]] = char
+        i = i + 1
+    temp_list = list(temp_dict.items())
+    temp_list.sort(key = getitemZero)
+    temp_key_list = []
+    for item in temp_list:
+        temp_key_list.append(item[1])
+
+    return ''.join(temp_key_list)
+
+
+#--------------------------------------------------------------------------------------------
 in_file = 'my_text.txt' #입력파일
 cipher_file = 'my_cipher.txt' #출력파일
+key = "UVGHQRYIAEBCDSTJKLWOPXFMNZ"
 
-text = Substitution_Cipher_lib.ReadFile(in_file)
-key = Substitution_Cipher_lib.Key_generation()
+
+text = File_lib.ReadFile(in_file)
 mycipher = Substitution_Cipher_lib.Substitution_En(key,text)
-Substitution_Cipher_lib.WriteFile(cipher_file,mycipher)
+File_lib.WriteFile(cipher_file,mycipher)
 
-# print(getletterCount(text))
 freqletter_plaintxt =  getFreqorder(text)
 freqletter_ciphertxt =  getFreqorder(mycipher)
 
 
-print("my paintxt = " ,freqletter_plaintxt)
-print("my ciphtxt = " ,freqletter_ciphertxt)
-# print("ETATIO = ", ETAOIN)
+# print("plain freqorder = " ,freqletter_plaintxt)
+print("ciphr freqorder = " ,freqletter_ciphertxt)
+key_guessed = Freq2Key(freqletter_ciphertxt)
+print("Guess key       = " ,key_guessed)
+
+recoverd_text = Substitution_Cipher_lib.Substitution_De(key_guessed,mycipher)
+recoverd_file = 'my_recovered.txt'
+File_lib.WriteFile(recoverd_file,recoverd_text)
