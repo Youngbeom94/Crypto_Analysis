@@ -48,9 +48,7 @@ def Make_isbox(sbox):
         idx  += 1
     return isbox
 
-
-
-    #------------------------------------------------
+ #------------------------------------------------
 def main():
     isbox = Make_isbox(Sbox)
     for i in range(len(isbox)):

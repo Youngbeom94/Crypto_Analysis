@@ -56,13 +56,13 @@ def Dec_Round(in_state, rkey):
     
     return out_state3
 
-#-- TC20 Encryption
+#-- TC20 Decryption
 def TC20_Dec(input_state, key):
     state = input_state
     numRound = 10 # 라운드 수
     for i in range(0, numRound):
         state = Dec_Round(state, key)
-
+        
     return state
 
 #------------------------------------------------
