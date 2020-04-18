@@ -250,12 +250,12 @@
 # print(list3)
 
 #--------------------------------------------------
-list1 = [1,2,3,4,65 , 66, 67, 68]
-bytes1 = bytes(list1)
+# list1 = [1,2,3,4,65 , 66, 67, 68]
+# bytes1 = bytes(list1)
 
-f = open('test-0413.txt','w+b') # binary file
-f.write(bytes1)
-f.close
+# f = open('test-0413.txt','w+b') # binary file
+# f.write(bytes1)
+# f.close
 
 # list2 = ['a','b','c','d']
 # str2 = ''.join(list2)
