@@ -1,13 +1,7 @@
 #-------------------------
-# 암호분석 2020
-#
 # Toy Cipher TF20 library
-#
+# 암호분석 2020 20175204김영범
 #-------------------------
-
-
-
-
 
 Sbox = [
         0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
@@ -47,7 +41,7 @@ def SB(in_state):
 #-- LM: Linear Map
 def LM(in_state):
     out_state = [0, 0, 0, 0]
-    all_xor = in_state[0] ^ in_state[1] ^ in_state[2] ^ in_state[3]
+    all_xor = in_state[0] ^ in_state[1] ^ in_state[2] ^ in_state [3]
     for i in range(len(in_state)):
         out_state[i] = in_state[i] ^ all_xor
     return out_state    
@@ -111,9 +105,9 @@ def TF20_Dec(input_state, key):
     for i in range(0, numRound):
         stateL, stateR = Enc_Round(stateL, stateR, key)
         #-- 아래 줄과 같은 결과
-        #stateL, stateR = Dec_Round(stateL, stateR, key)
+        # stateL, stateR = Dec_Round(stateL, stateR, key)
         #-- 디버깅용 출력이 필요하면...
-        #print(i, stateL, stateR)
+        # print(i, stateL, stateR)
         
     #- final swap
     stateL, stateR = stateR, stateL        
@@ -124,8 +118,8 @@ def TF20_Dec(input_state, key):
 #------------------------------------------------
 def main():
     message = 'ABCDEFGH'
-    key = [0, 1, 2, 3]
-    input_state = [ ord(ch) for ch in message ]
+    key = [0, 1, 2, 3] #key는 4byte만 쓰도록 만들자
+    input_state = [ ord(ch) for ch in message ] 
     
     output_state = [ item for item in TF20_Enc(input_state, key)  ]
     
@@ -140,6 +134,11 @@ def main():
     print('decrypted state =', str1)
 
 ##-- Run main()
+'''
+라이브러리 파일인데 실행하면서 작성하기
+라이브러리로 호출될때는 실행되지 않음
+파일을 실행하면 main()함수가 호출됨
 
+'''
 if __name__ == '__main__':
     main()
