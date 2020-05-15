@@ -51,7 +51,7 @@ def list2int(lst):
 given_pt = [0, 1, 2, 3]
 given_ct = [192,126,66,83]
 
-keysize = 1<<22 #key 20비트만 전수조사(최대:32비트)
+keysize = 1<<32 #key 20비트만 전수조사(최대:32비트)
 
 print("Key searching", end = '')
 for idx in range(0,keysize):

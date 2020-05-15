@@ -8,10 +8,10 @@ upper_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 #?---Plaintxt
-plain_msg = "this is a plaintext message to be encrypted!"
+plain_msg = "abbbbbbba"
 
 #?---key
-key = 3 # key must be in [0..25]
+key = 8 # key must be in [0..25]
 
 #?---Encrypt
 cipher_msg = ""
@@ -27,9 +27,6 @@ for symbol in plain_msg: #plainmsg 안에서 하나씩 가져오겠다?
         cipher_msg = cipher_msg + lower_alphabet[trans_idx]
     else: #-- 영문자가 아닌경우
         cipher_msg = cipher_msg + symbol
-
-print("plain txt = ",plain_msg )
-print("cipher txt = ",cipher_msg )
 
 #?---Decrypt
 recovered_msg = ""
